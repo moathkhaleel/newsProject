@@ -5,7 +5,6 @@ const apiKey = '10f35138a7823dddd2ea0d38211aa8bb&of=json&txt=';
 
 var path = require('path')
 const express = require('express')
-const mockAPIResponse = require('./mockAPI.js')
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 dotenv.config();
@@ -25,9 +24,11 @@ app.get('/', function (req, res) {
 })
 
 // designates what port the app will listen to for incoming requests
-app.listen(8081, function () {
+app.listen(8081, listening)
+
+function listening(req, res) {
     console.log('Example app listening on port 8081!');
-})
+}
 
 app.get('/all', getData)
 

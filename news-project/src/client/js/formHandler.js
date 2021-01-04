@@ -6,7 +6,6 @@ function handleSubmit(event) {
     // check what text was put into the form field
     let formText = document.getElementById('name').value.replace(/\s/g,"&");
     console.log("fetch initiated");
-    Client.checkForName(formText)
     fetch('http://localhost:8081/', {formText: formText})
     .then(function(data) {
         console.log(data.irony)
