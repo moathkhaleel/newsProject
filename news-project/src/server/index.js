@@ -14,7 +14,6 @@ app.use(cors())
 app.use(express.static('dist'))
 
 console.log(__dirname)
-
 app.get('/', function (req, res) {
     //res.sendFile('dist/index.html')
     res.sendFile(path.resolve('src/client/views/index.html'))
@@ -25,27 +24,6 @@ app.listen(8081, listening)
 
 function listening(req, res) {
     console.log('Example app listening on port 8081!');
-}
-
-app.get('/all', getData)
-
-function getData(req,res) {
-    res.send(projectData)
-    console.log(projectData)
-    console.log('getdata complete')
-}
-
-app.post('/addText', addText);
-
-function addText(req,res) {
-    console.log('addText')
-    newEntry = {
-        irony: req.body.irony,
-        subjectivity: req.body.subjectivity
-    }
-    projectData = newEntry
-    res.send(projectData)
-    console.log(projectData)
 }
 
 

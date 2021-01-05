@@ -22,7 +22,7 @@ const postData = async (url, data) => {
    try {
        const newData = await response.json();
        return newData
-   } catch(eror) {
+   } catch(error) {
        console.log("error", error);
    } 
 };
