@@ -1,17 +1,14 @@
-import fetch from "node-fetch";
-
 function handleSubmit(event) {
     event.preventDefault()
 
     // check what text was put into the form field
     let formText = document.getElementById('name').value.replace(/\s/g,"&");
-        postData('/call', {formText: formText})
-        updateUI()
-
+    const newData = postData('http://localhost:8081/call', {formText: formText})
+    updateUI(newData)
 }
 
-const postData = async (url, data) => {
-    const response = await fetch(url, {
+const postData = async (url = '', data = {}) => {
+    const response = await fetch('http://localhost:8081/call', {
        method: 'POST', 
        credentials: 'same-origin', 
        headers: {

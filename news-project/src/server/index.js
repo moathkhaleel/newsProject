@@ -27,6 +27,15 @@ function listening(req, res) {
 }
 
 
+app.post('/call', async (req, res) => {
+    const userInput = req.body; 
+    const apiURL = `https://api.meaningcloud.com/sentiment-2.1?key=${process.env.API_KEY}&lang=en&of=json&txt=${userInput}`;
+    console.log(`Your API url is ${apiURL}`);
+    const response = await fetch(apiURL);
+    const data = await response.json()
+    res.json(data);
+})
+
 app.get('/call', async (req, res) => {
     const userInput = req.body; 
     const apiURL = `https://api.meaningcloud.com/sentiment-2.1?key=${process.env.API_KEY}&lang=en&of=json&txt=${userInput}`;
