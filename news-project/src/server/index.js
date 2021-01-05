@@ -1,7 +1,4 @@
 projectData = {};
-const baseURL1 = 'https://api.meaningcloud.com/sentiment-2.1?key=';
-const baseURL2 = '&lang=en';
-const apiKey = '10f35138a7823dddd2ea0d38211aa8bb&of=json&txt=';
 
 var path = require('path')
 const express = require('express')
@@ -54,8 +51,8 @@ function addText(req,res) {
 
 app.get('/call', async (req, res) => {
     const userInput = req.body; 
-    console.log(`user input is: ${userInput}`);
-    const apiURL = baseURL1 + apiKey + userInput + baseURL2;
+    const apiURL = `https://api.meaningcloud.com/sentiment-2.1?key=${process.env.API_KEY}&lang=en&of=json&txt=${userInput}`;
+    console.log(`Your API url is ${apiURL}`);
     const response = await fetch(apiURL);
     const data = await response.json()
     res.json(data);

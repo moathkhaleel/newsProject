@@ -5,13 +5,8 @@ function handleSubmit(event) {
 
     // check what text was put into the form field
     let formText = document.getElementById('name').value.replace(/\s/g,"&");
-    console.log("fetch initiated");
-    fetch('http://localhost:8081/', {formText: formText})
-    .then(function(data) {
-        console.log(data.irony)
-        postData('/addText', data = {irony: data.irony, subjectivity: data.subjectivity})
+        postData('/call', {formText: formText})
         updateUI()
-    })
 
 }
 
@@ -32,8 +27,9 @@ const postData = async (url, data) => {
    } 
 };
 
+
 const updateUI = async () => {
-    const request = await fetch('/all')
+    const request = await fetch('/call')
     try {
         const allData = await request.json()
         console.log(allData);
@@ -42,17 +38,6 @@ const updateUI = async () => {
     } catch(error) {
         console.log("error", error)
     }
-}
-
-const makeCall = async(txt) => {
-    const res = await fetch(baseURL1 + apiKey + txt + baseURL2) 
-    try {
-        const data = await res.json();
-        console.log(data)
-        return data;
-    } catch(error) {
-        console.log("error", error);
-    } 
 }
 
 export { handleSubmit }
