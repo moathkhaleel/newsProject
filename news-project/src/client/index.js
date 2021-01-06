@@ -1,4 +1,5 @@
-import { handleSubmit } from './js/formHandler'
+import { handleSubmit } from './js/formHandler.js'
+import { inputChecker } from './js/inputChecker.js'
 
 import './styles/resets.scss'
 import './styles/base.scss'
@@ -7,5 +8,6 @@ import './styles/form.scss'
 import './styles/header.scss'
 
 export {
-    handleSubmit
+    handleSubmit, 
+    inputChecker
 }
