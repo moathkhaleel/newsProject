@@ -1,88 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8"/>
-        <title> Trip weather forecast </title>
-        <meta
-        content="width=device-width, initial-scale=1, maximum-scale=1"
-        name="viewport"
-        />
-    </head>
-    <body>
-        <div class="heading">
-            <div id="heading-title">
-                <h2> Trip planner </h2>
+   <head>
+      <meta charset="utf-8"/>
+      <title> Trip weather forecast </title>
+      <meta
+         content="width=device-width, initial-scale=1, maximum-scale=1"
+         name="viewport"
+         />
+   </head>
+   <body>
+      <div class="heading">
+         <div id="heading-title">
+            <h2> Trip planner </h2>
+         </div>
+         <div id="heading-sub-title">
+            <h2> My trip details </h2>
+         </div>
+      </div>
+      <div class="trip">
+         <div id="image">
+            <img src="./city.jpg" alt="destination image">
+         </div>
+         <div id="trip-info">
+            <div id="dest">
+               <strong> Destination:</strong>
             </div>
-            <div id="heading-sub-title">
-                <h2> My trip details </h2>
+            <div id="departing"> 
+               <strong> Departing on: </strong> 
             </div>
-        </div>
-        <div class="trip">
-                <div id="image">
-                    <img src="" alt="destination image">
-                </div>
-                <div id="trip-info">
-                    <div id="dest">
-                        <strong> Destination:</strong>
-                    </div> 
-                    <div id="departing"> 
-                        <strong> Departing on: </strong> 
-                    </div> 
-                    <div id="away"> 
-                        
-                    </div>    
-                </div>
-                <div id="weather-info">
-                    <div id="forecast">
-                        Temperature:
-                    </div>
-                    <div id="forecast-description">
-                        Description
-                    </div>
-                </div>
-        </div>
-        <div class="add-trip">
-            <div class="card2">
-                <div id="desc">
-                    Destination:
-                </div>
-                <div id="details">
-                        <div id="city">
-                          <label for="city">City: </label>
-                          <input type="text" id="cityName" placeholder="enter city name here">
-                        </div>
-                        <div id="country">
-                          <label for="city">Country: </label>
-                          <input type="text" id="countryName" placeholder="enter country name here">
-                        </div>
-                        <div id="date">
-                            <label for="date">Enter trip date here: </label>
-                            <input type="date" id="tripdate" placeholder="enter trip date here">
-                        </div>
-                </div> 
-                
+            <div id="away"> 
             </div>
-            <div id="submit">
-                <button id="generate" type = "submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)"> GENERATE </button>
+         </div>
+         <div id="weather-info">
+            <div id="forecast">
+               Temperature:
             </div>
-
-
-        </div>
-        <script>
-            if ('serviceWorker' in navigator) {
-               window.addEventListener('load', () => {
-                   navigator.serviceWorker.register('/service-worker.js').then(registration => {
-                   console.log('SW registered: ', registration);
-                   }).catch(registrationError => {
-                   console.log('SW registration failed: ', registrationError);
-                   });
-               });
-               }
-       </script>
-    </body>
+            <div id="forecast-description">
+               Description
+            </div>
+         </div>
+      </div>
+      <div class="add-trip">
+         <div class="card2">
+            <div id="desc">
+               Destination:
+            </div>
+            <div id="details">
+               <div id="city">
+                  <label for="city">City: </label>
+                  <input type="text" id="cityName" placeholder="enter city name here">
+               </div>
+               <div id="country">
+                  <label for="city">Country: </label>
+                  <input type="text" id="countryName" placeholder="enter country name here">
+               </div>
+               <div id="date">
+                  <label for="date">Enter trip date here: </label>
+                  <input type="date" id="tripdate" placeholder="enter trip date here">
+               </div>
+            </div>
+         </div>
+         <div id="submit">
+            <button id="generate" type = "submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)"> GENERATE </button>
+         </div>
+      </div>
+      <script>
+         if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js').then(registration => {
+                console.log('SW registered: ', registration);
+                }).catch(registrationError => {
+                console.log('SW registration failed: ', registrationError);
+                });
+            });
+            }
+      </script>
+   </body>
 </html>
-<!--
-            <form id="submit" onsubmit="return Client.handleSubmit(event)">
-                <input type="submit" id="generate" value="submit" onsubmit="return handleSubmit(event)">
-            </form>
--->

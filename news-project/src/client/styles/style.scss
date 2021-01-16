@@ -12,25 +12,24 @@ body {
 
 .heading {
 	grid-area: heading;
-    display: grid;
-    grid-template-rows: 60% 40%;
-    grid-template-areas: "top" "bottom";
+	display: grid;
+	grid-template-rows: 60% 40%;
+	grid-template-areas: "top" "bottom";
 }
 
 #heading-title {
 	background-color: #c02942;
-    color: #fffff7;
-    grid-area: top;
+	color: #fffff7;
+	grid-area: top;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
-
 }
 
 #heading-sub-title {
 	color: #969595;
 	background-color: #fbfae6;
-    grid-area: bottom;
+	grid-area: bottom;
 	display: flex;
 	flex-wrap: wrap;
 	padding-left: 100px;
@@ -47,10 +46,11 @@ body {
 }
 
 img {
-    height: inherit;
-    width: 100%;
-    object-fit: cover;
+	height: inherit;
+	width: 100%;
+	object-fit: cover;
 }
+
 #image {
 	background-color: #06121b;
 	height: 100%;
@@ -81,7 +81,7 @@ img {
 
 .add-trip {
 	grid-area: add;
-    color: #fafbfc;
+	color: #fafbfc;
 	padding: 1%;
 	display: flex;
 	flex-wrap: wrap;
@@ -115,8 +115,8 @@ img {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-    align-content: center;
-    margin: 10px;
+	align-content: center;
+	margin: 10px;
 }
 
 #submit:hover {
@@ -165,45 +165,47 @@ input[type="date"] {
 
 input[type="text"] {
 	background: transparent;
-    border: none;
-    font-size: 16px;
-    color: white;
+	border: none;
+	font-size: 16px;
+	color: white;
 }
 
 #tripdate {
 	background: transparent;
-    border: none;
-    font-size: 16px;
-    color: white;
+	border: none;
+	font-size: 16px;
+	color: white;
 }
 
 #countryName {
 	background: transparent;
-    border: none;
-    font-size: 16px;
-    color: white;
+	border: none;
+	font-size: 16px;
+	color: white;
 }
 
 #cityName {
 	background: transparent;
-    border: none;
-    font-size: 16px;
-    color: white;
+	border: none;
+	font-size: 16px;
+	color: white;
 }
 
 button {
 	background-color: Transparent;
 	color: #5e1622;
-    background-repeat:no-repeat;
-    border: none;
-    cursor:pointer;
-    overflow: hidden;
-	outline:none;
+	background-repeat: no-repeat;
+	border: none;
+	cursor: pointer;
+	overflow: hidden;
+	outline: none;
 	font-size: 25px;
 	padding-bottom: 15px;
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: black;
-    opacity: 1; /* Firefox */
-  }
+::placeholder {
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: black;
+	opacity: 1;
+	/* Firefox */
+}

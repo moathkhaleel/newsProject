@@ -8,8 +8,8 @@ async function handleSubmit(event) {
     const valueCheck1 = inputChecker(city.value)
     const valueCheck2 = inputChecker(countryName)
     console.log(`country is ${countryName}`)
-    if (valueCheck2 || valueCheck1 || dateChecker(tripDate)) {
-        if (dateChecker(tripDate)) {
+    if (valueCheck2 || valueCheck1 || dateChecker(dateInput)) {
+        if (dateChecker(dateInput)) {
             alert("please enter a date after today")
         }
         else {
@@ -21,10 +21,10 @@ async function handleSubmit(event) {
         console.log(countryName)
         console.log(tripDate)
         //creating an API call
-        const countryData =  await appBody(url ='http://localhost:8081/countryCode', data = {countryName: countryName})
-        const coordinates = await appBody(url = 'http://localhost:8081/getCoord', data = {city: city.value, country: countryData.alpha2Code}) 
-        const weather = await appBody(url = 'http://localhost:8081/getWeath', data = {date: tripDate, lat: coordinates.lat, lng: coordinates.lng})
-        const image = await appBody(url = 'http://localhost:8081/getImg', data = {city: city.value, countryName: countryName})
+        const countryData =  await appBody('http://localhost:8081/countryCode', {countryName: countryName})
+        const coordinates = await appBody('http://localhost:8081/getCoord', {city: city.value, country: countryData.alpha2Code}) 
+        const weather = await appBody('http://localhost:8081/getWeath', {date: tripDate, lat: coordinates.lat, lng: coordinates.lng})
+        const image = await appBody('http://localhost:8081/getImg', {city: city.value, countryName: countryName})
         .then(function(image) {
             imageScr.src = image
             console.log(weather)
@@ -98,7 +98,12 @@ function inputChecker(str) {
 }
 //check for date in the past 
 function dateChecker(date) {
-    return date<-1
+    if (checkDate(date)<-1 || date=="") {
+        return true
+    }
+    else {
+        return false
+    }
 }
 
 
