@@ -23,8 +23,8 @@ async function handleSubmit(event) {
         //creating an API call
         const countryData =  await appBody(url ='http://localhost:8081/countryCode', data = {countryName: countryName})
         const coordinates = await appBody(url = 'http://localhost:8081/getCoord', data = {city: city.value, country: countryData.alpha2Code}) 
-        const weather = await appBody(url = 'http:localhost:8081/getWeath', data = {date: tripDate, lat: coordinates.lat, lng: coordinates.lng})
-        const image = await appBody(url = 'http:localhost:8081/getImg', data = {city: city.value, countryName: countryName})
+        const weather = await appBody(url = 'http://localhost:8081/getWeath', data = {date: tripDate, lat: coordinates.lat, lng: coordinates.lng})
+        const image = await appBody(url = 'http://localhost:8081/getImg', data = {city: city.value, countryName: countryName})
         .then(function(image) {
             imageScr.src = image
             console.log(weather)
@@ -92,11 +92,11 @@ const updateUI = async (city, countryName, dateInput, tripDate, weather) => {
         console.log("error", error)
     }
 }
-
+//check for empty country and city fields by user
 function inputChecker(str) {
     return (str.match(/^\s*$/) || []).length > 0;
 }
-
+//check for date in the past 
 function dateChecker(date) {
     return date<-1
 }
