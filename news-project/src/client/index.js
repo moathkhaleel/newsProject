@@ -1,13 +1,7 @@
 import { handleSubmit } from './js/formHandler.js'
-import { inputChecker } from './js/inputChecker.js'
 
-import './styles/resets.scss'
-import './styles/base.scss'
-import './styles/footer.scss'
-import './styles/form.scss'
-import './styles/header.scss'
+import './styles/style.scss'
 
 export {
-    handleSubmit, 
-    inputChecker
+    handleSubmit
 }

@@ -1,0 +1,205 @@
+body {
+	background-color: #fbfae6;
+	font-family: 'Hind Siliguri', sans-serif;
+	padding: 0;
+	margin: 0;
+	height: 100vh;
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: 20% 50% 30%;
+	grid-template-areas: "heading" "trip-c" "add";
+}
+
+.heading {
+	grid-area: heading;
+    display: grid;
+    grid-template-rows: 60% 40%;
+    grid-template-areas: "top" "bottom";
+}
+
+#heading-title {
+	background-color: #c02942;
+    color: #fffff7;
+    grid-area: top;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+
+}
+
+#heading-sub-title {
+	color: #969595;
+	background-color: #fbfae6;
+    grid-area: bottom;
+	display: flex;
+	flex-wrap: wrap;
+	padding-left: 100px;
+}
+
+.trip {
+	grid-area: trip-c;
+	display: flex;
+	flex-wrap: wrap;
+	color: #fafbfc;
+	padding: 50px;
+	row-gap: 11px;
+	flex-direction: column;
+}
+
+img {
+    height: inherit;
+    width: 100%;
+    object-fit: cover;
+}
+#image {
+	background-color: #06121b;
+	height: 100%;
+	width: 47.5%;
+}
+
+#trip-info {
+	display: inline-flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-content: space-around;
+	height: 47.5%;
+	width: 50%;
+	background-color: #fe4e50;
+	color: #fffff7;
+}
+
+#weather-info {
+	display: inline-flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-content: space-around;
+	height: 47.5%;
+	width: 50%;
+	background-color: #c02942;
+	color: #fffff7;
+}
+
+.add-trip {
+	grid-area: add;
+    color: #fafbfc;
+	padding: 1%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+}
+
+.card2 {
+	width: 90%;
+	height: 90%;
+	padding: 5px;
+	background-color: #fe4e50;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+	align-content: space-between;
+}
+
+#desc {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+	height: auto;
+	flex-basis: 50%;
+	flex-shrink: 1;
+}
+
+#submit {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+    align-content: center;
+    margin: 10px;
+}
+
+#details {
+	height: auto;
+	min-width: 100%;
+	justify-content: center;
+	align-content: center;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	flex-basis: 25%;
+	flex-shrink: 1;
+}
+
+#city {
+	padding: 10px;
+	height: auto;
+	width: auto;
+	background-color: #fe4e50;
+}
+
+#country {
+	padding: 10px;
+	height: auto;
+	width: auto;
+	background-color: #fe4e50;
+}
+
+#date {
+	padding: 10px;
+	height: auto;
+	width: auto;
+	background-color: #fe4e50;
+}
+
+input[type="date"] {
+	background: transparent;
+	border: none;
+	padding-left: 20px;
+	font-size: 16px;
+}
+
+input[type="text"] {
+	background: transparent;
+    border: none;
+    font-size: 16px;
+    color: white;
+}
+
+#tripdate {
+	background: transparent;
+    border: none;
+    font-size: 16px;
+    color: white;
+}
+
+#countryName {
+	background: transparent;
+    border: none;
+    font-size: 16px;
+    color: white;
+}
+
+#cityName {
+	background: transparent;
+    border: none;
+    font-size: 16px;
+    color: white;
+}
+
+button {
+	background-color: Transparent;
+	color: #5e1622;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+	outline:none;
+	font-size: 25px;
+	padding-bottom: 15px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 1; /* Firefox */
+  }
