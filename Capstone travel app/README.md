@@ -13,3 +13,9 @@ Webpack can be run using both production and development environments. The follw
 2) production: npm run build-prod
 
 The project fetches weather data from a weather api. If the desire trip date is within a week, today's forecast is posted. If the date is within a week and 16 days, a predicted forecast is posted. If the date is more than 16 days away, the forecast after 16 days is posted. This is a limitation from the api itself. 
+
+.................
+The following extra features were added: 
+1) pixaby api pulls an image of the country if no results are found for the city, to avoid an empty image 
+2) the rest countries api is implemented to get the proper country code for the back up image api call
+......................
