@@ -11,6 +11,10 @@ const { default: fetch } = require('node-fetch');
 app.use(cors())
 app.use(express.static('dist'))
 
+//constants 
+const imageURL = "?key=19823070-45477fbeffcda3b68faba4fbb&q="
+const weatherURL = "&key=737cc28b5b53496abe8ccebe173adc63"
+const coordinatesURL = "&username=moathkhaleel"
 // Setup needed URLs:
 //countries api
 const baseCounrty = "https://restcountries.eu/rest/v2/name/"
@@ -55,7 +59,7 @@ const getCoord = async (req, res) => {
     const CC = `&country=${req.body.country}`
     const cityFetch = replaceLetter(req.body.city,"&")
     try {
-        const resp = await fetch(baseURL1+cityFetch+CC+(process.env.coordinatesURL)) 
+        const resp = await fetch(baseURL1+cityFetch+CC+coordinatesURL) 
         const data1 = await resp.json();
         const data = data1.postalCodes[0];
         if (data) {
@@ -63,7 +67,7 @@ const getCoord = async (req, res) => {
         }
         else if (!data) {
             console.log("trying without country code")
-            const res1 = await fetch(baseURL1+cityFetch+(process.env.coordinatesURL))
+            const res1 = await fetch(baseURL1+cityFetch+coordinatesURL)
             const data2 = await res1.json();
             const data3 = data2.postalCodes[0]
             res.json(data3) 
@@ -97,7 +101,7 @@ const getImg = async (req, res) => {
     console.log(`the country is ${countryNameFetch}`)
     //try to fetch a picture of the city
     try {
-        const respon = await fetch(baseimg1+(process.env.imageURL)+cityFetch1+"+city") 
+        const respon = await fetch(baseimg1+imageURL+cityFetch1+"+city") 
         const data1 = await respon.json();
         const data2 = data1.hits[1];
         if (data2) {
@@ -107,7 +111,7 @@ const getImg = async (req, res) => {
         //try and fetch a picture of the country instead 
         else if (!data2) {
             console.log('city failed trying country')
-            const res2 = await fetch(baseimg1+(process.env.imageURL)+countryNameFetch)
+            const res2 = await fetch(baseimg1+imageURL+countryNameFetch)
             const data3 = await res2.json();
             const data4 = data3.hits[1].webformatURL;
             res.json(data4)
@@ -123,7 +127,7 @@ app.post('/getImg', getImg)
 const fetchDateRes = async (coord, date) => {
     //if the trip is less than a week away, the current forecast is projected
     if (date<=7) {
-        const res = await fetch(baseWeather2+coord+(process.env.weatherURL))
+        const res = await fetch(baseWeather2+coord+weatherURL)
         const weather = await res.json();
         const weath = {
             description: weather.data[0].weather.description, 
@@ -133,13 +137,13 @@ const fetchDateRes = async (coord, date) => {
     }
     //if the trip is between a week and 16 days away, a future forecast is projected
     else if (date>7 && date<=16) {
-        const res = await fetch(baseWeather1+coord+(process.env.weatherURL))
+        const res = await fetch(baseWeather1+coord+weatherURL)
         const weather = await res.json();
         return fetchWeather(weather, date)
     }
     //if the trip is more than 16 days away, the forecast after 16 days is projected regardless
     else if (date>16) {
-        const res = await fetch(baseWeather1+coord+(process.env.weatherURL))
+        const res = await fetch(baseWeather1+coord+weatherURL)
         const weather = await res.json();
         return fetchWeather(weather, 15);
     } 
